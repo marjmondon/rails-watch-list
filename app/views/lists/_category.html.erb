@@ -1,6 +1,6 @@
 <div class="cards">
   <% @lists.each do |list| %>
-    <div class="card-category m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(list.photo.key) %>')">
+    <div class="card-category m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(list.photo.key) if list.photo.attached? %>')">
         <%= link_to list.name, list_path(list) %>
     </div>
   <% end %>

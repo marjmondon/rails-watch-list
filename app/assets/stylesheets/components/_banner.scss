@@ -3,7 +3,8 @@
   background-position: center;
   padding: 250px 0;
   margin: 0 0 10px 0;
-  border-radius: 30px;;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .banner h1 {
@@ -12,11 +13,4 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
-}
-
-.banner p {
-  font-size: 20px;
-  color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }

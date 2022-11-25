@@ -1,0 +1,23 @@
+ <div class="row row-cols-1 row-cols-md-3 g-4">
+  <% @list.bookmarks.each do |bookmark| %>
+    <div class="col">
+      <div class="card-group">
+        <div class="card">
+          <img src="<%= bookmark.movie.poster_url %>" class="card-img-top" alt="<%= bookmark.movie.title %>">
+          <div class="card-body">
+            <h5 class="card-title"><%= bookmark.movie.title %></h5>
+            <p class="card-text"><%= bookmark.movie.overview %></p>
+            <p class="card-text">Rating : <%= bookmark.movie.rating %></p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted"><%= bookmark.comment %></small>
+            <%= link_to "Delete",
+            bookmark_path(bookmark),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+          %>
+          </div>
+        </div>
+      </div>
+    </div>
+   <% end %>
+</div>

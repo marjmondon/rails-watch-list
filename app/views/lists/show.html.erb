@@ -1,19 +1,9 @@
-<h1><%= @list.name %></h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @list.photo.key %>');">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+  </div>
+</div>
 
-<ul class="list-group list-unstyled">
-  <% @list.bookmarks.each do |bookmark| %>
-    <div class="list-group-item">
-    <li><%= bookmark.movie.title %></li>
-    <li><%= bookmark.movie.overview %></li>
-    <li><%= bookmark.movie.rating %></li>
-    <li><img src=<%= bookmark.movie.poster_url %>></li>
-    <li><%= bookmark.comment %></li>
-    <li><%= link_to "Delete",
-        bookmark_path(bookmark),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-      %></li>
-    </div>
-  <% end %>
-</ul>
+<a class="btn btn-ghost" href="<%= new_list_bookmark_path(@list) %>">Add a movie to this category</a>
 
-<%= link_to "Bookmark comment", new_list_bookmark_path(@list) %>
+<%= render 'movie-card', list: @list %>

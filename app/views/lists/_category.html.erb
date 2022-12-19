@@ -1,7 +1,7 @@
 <div class="cards">
   <% @lists.each do |list| %>
     <div class="card-category m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(list.photo.key) if list.photo.attached? %>')">
-        <%= list.name %>
+        <%= link_to list.name, list_path(list) %>
         <%= link_to "+", list_path(list), data: { turbo_method: :delete, turbo_confirm: "Delete this category?" }, class: "card-remove-link" %>
     </div>
   <% end %>
